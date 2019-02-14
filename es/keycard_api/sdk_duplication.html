@@ -1,0 +1,440 @@
+<!DOCTYPE html>
+<html lang="es">
+<head prefix="og: http://ogp.me/ns#"><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="utf-8">
+  <title>Java SDK | Status</title>
+  <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- Canonical links -->
+  <link rel="canonical" href="https://dev.status.im/es/keycard_api/sdk_duplication.html">
+  <!-- Alternative links -->
+  
+    
+      <link rel="alternative" hreflang="en" href="https://dev.status.im/es/keycard_api/sdk_duplication.html">
+    
+      <link rel="alternative" hreflang="es" href="https://dev.status.im/es/es/keycard_api/sdk_duplication.html">
+    
+      <link rel="alternative" hreflang="ko" href="https://dev.status.im/ko/es/keycard_api/sdk_duplication.html">
+    
+  
+  <!-- Icon -->
+  <link rel="icon" type="image/png" href="/img/logo-16.png" sizes="16x16">
+  <link rel="icon" type="image/png" href="/img/logo-32.png" sizes="32x32">
+
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/apple-touch-icon-76.png?v=0.0.5">
+  <link rel="apple-touch-icon" sizes="120x120" href="/img/apple-touch-icon-120.png?v=0.0.5">
+  <link rel="apple-touch-icon" sizes="152x152" href="/img/apple-touch-icon-152.png?v=0.0.5">
+  <link rel="apple-touch-icon" sizes="180x180" href="/img/apple-touch-icon-180.png?v=0.0.5">
+  <link rel="apple-touch-icon" href="/img/apple-touch-icon-1024.png?v=0.0.5">
+  <link rel="stylesheet" href="/css/main.min.css">
+  <link rel="alternate" href="/atom.xml" title="Status">
+  <script src="/js/jquery.min.js"></script>
+<script src="/js/jquery-ui.min.js"></script>
+<script src="/js/jquery.marcopolo.js" type="text/javascript"></script>
+<meta property="elasticsearch" data-es-host="search.status.im" data-es-port="443" data-es-index="dev.status.im">
+  <meta property="og:image" content="/img/share.png">
+  <meta property="og:title" content="Status, a Mobile Client for Ethereum 2.0">
+</head>
+
+<body>
+  <div id="container">
+    
+      <div class="header">
+    <div class="header-left">
+        <a class="logo" href="/es/"></a>
+        
+<ul class="main-nav">
+    <li class="item--to-show"><a href="https://status.im/get" class="">App</a></li>
+    <li class="item--to-show"> <a href="https://our.status.im/">Blog</a> </li>
+    <li class="item--to-show"> <a href="https://status.im/docs">Docs</a></li>
+    <li class="item--dropdown item--dropdown-projects"> <a href="#" class="">Projects</a></li>
+    <li><a href="https://status.im/contribute">Contribute</a></li>
+    <li class="item--dropdown"><a href="#" class="item--dropdown-community">Community</a></li>
+    <li class="item--more"><a href="#" class="item--more">More</a></li>
+</ul>
+
+    </div>
+    <div class="header-right">
+        <a href="https://get.status.im/chat/public/status" class="button">Join Status Chat</a>
+    </div>
+</div>
+
+<div class="mobile-nav-wrap">
+    <div class="mobile-nav-inner">
+        <a class="logo" href=""></a>
+        <a class="icon-close mobile-nav-close" href="#"></a>
+        <ul class="mobile-nav">
+            <li><a href="https://our.status.im/">Blog</a></li>
+            <li><a href="">Docs</a></li>
+            <li class="item--dropdown item--to-show">
+              <span>Projects</span>
+              <ul class="mobile-sub-nav">
+                <li><a href="https://incubate.status.im/" class="">Incubate</a></li>
+                <li><a href="https://nimbus.status.im/" class="">Nimbus</a></li>
+                <li><a href="https://embark.status.im/" class="">Embark</a></li>
+                <li><a href="https://keycard.status.im/" class="">Keycard</a></li>
+              </ul>
+            </li>
+            <li><a href="" class="">Contribute</a></li>
+        </ul>
+        <div class="mobile-nav-footer">
+            <a href="https://get.status.im/chat/public/status" class="button button--blue">Join Status Chat</a>
+        </div>
+    </div>
+    <div class="mobile-nav-overlay"></div>
+</div>
+
+<div class="popup-wrap popup-wrap--community">
+    <div class="popup popup--community">
+        <a class="popup__button popup__button--close"></a>
+        <h3 class="popup__title">Community</h3>
+        <div class="popup__inner">
+            <div class="cards cards--three cards--three--even cards--community cards--community--light">
+                <div class="card">
+                    <a href="https://get.status.im/chat/public/status" class="card-inner">
+                        <div class="community-icon community-icon--join"></div>
+                        <h4>Join the chat in Status</h4>
+                        <p class="secondary-text">Whisper sweet, encrypted nothings on a distributed network that no-one owns.</p>
+                    </a>
+                </div>
+                <div class="card">
+                    <a href="https://discuss.status.im/" class="card-inner">
+                        <div class="community-icon community-icon--discussion"></div>
+                        <h4>Join the Discussion</h4>
+                        <p class="secondary-text">Join longer discussions, work in progress, and our research here.</p>
+                    </a>
+                </div>
+                <div class="card">
+                    <a href="https://github.com/status-im/" class="card-inner">
+                        <div class="community-icon community-icon--contrubute"></div>
+                        <h4>Contribute to our Repos</h4>
+                        <p class="secondary-text">Help us #buidl the future by getting involved in the most active code base in Ethereum.</p>
+                    </a>
+                </div>
+            </div>
+            <h5>Find Out More</h5>
+            <div class="cards cards-community-more cards--three cards--three--even">
+                <div class="card">
+                    <div class="card-inner">
+                        <div class="card-content">
+                            <div class="latest-posts latest-news"></div>
+                        </div>
+                        <div class="card-community-more__link"><a href="https://our.status.im/" class="link-arrow">Learn more</a></div>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card-inner">
+                        <div class="card-content">
+                            <h4>Life at Status</h4>
+                            <p class="secondary-text">What's it like to live the decentralized lifestyle? Find out here.</p>
+                        </div>
+                        <div class="card-community-more__link"><a href="https://status.im/contribute/" class="link-arrow">Learn more</a></div>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card-inner">
+                        <div class="card-content">
+                            <h4>Follow us on Twitter</h4>
+                            <p class="secondary-text">Join the conversation on our social channels to learn more.</p>
+                        </div>
+                        <div class="card-community-more__link"><a href="https://twitter.com/ethstatus/" class="link-arrow">Learn more</a></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="popup-overlay"></div>
+</div>
+
+<div class="popup-wrap popup-wrap--projects">
+    <div class="popup popup--projects">
+        <a class="popup__button popup__button--close"></a>
+        <h3 class="popup__title">Projects</h3>
+        <div class="popup__inner">
+            <h5>Help us #buidl</h5>
+            <div class="cards cards-community-more cards--three cards--three--even">
+                <div class="card">
+                    <div class="card-inner">
+                        <div class="card-content">
+                            <h4>Embark</h4>
+                            <p class="secondary-text">Embark is a simple and easy to use development framework that enables you to build and deploy your own decentralized applications smoothly.</p>
+                        </div>
+                        <div class="card-community-more__link"><a href="https://embark.status.im/" class="link-arrow">Learn more</a></div>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card-inner">
+                        <div class="card-content">
+                            <h4>Nimbus</h4>
+                            <p class="secondary-text">A research project and light client for Ethereum 2.0 designed to perform well on embedded systems and resource-restricted hardware.</p>
+                        </div>
+                        <div class="card-community-more__link"><a href="https://nimbus.status.im" class="link-arrow">Learn more</a></div>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card-inner">
+                        <div class="card-content">
+                            <h4>Keycard</h4>
+                            <p class="secondary-text">A hardware wallet in the form of a card with a safe, contactless transaction experience</p>
+                        </div>
+                        <div class="card-community-more__link"><a href="https://keycard.status.im/" class="link-arrow">Learn more</a></div>
+                    </div>
+                </div>
+            </div>
+            <div class="separator"></div>
+            <h5>Enable Everyone</h5>
+            <div class="cards cards-community-more cards--three cards--three--even">
+                <div class="card">
+                    <div class="card-inner">
+                        <div class="card-content">
+                            <h4>Incubate</h4>
+                            <p class="secondary-text">Incubate supports open source, early stage startups with funding, technical mentorship, legal and regulatory compliance and much more.</p>
+                        </div>
+                        <div class="card-community-more__link"><a href="https://incubate.status.im/" class="link-arrow">Learn more</a></div>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card-inner">
+                        <div class="card-content">
+                            <h4>Statusphere</h4>
+                            <p class="secondary-text">Get involved in our community today, no matter who you are.</p>
+                        </div>
+                        <div class="card-community-more__link"><a href="https://status.im/statusphere/" class="link-arrow">Learn more</a></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="popup-overlay"></div>
+</div>
+
+
+    
+    <div class="page-intro wrapper">
+<div class="search">
+    <input type="text" name="userSearch" id="userSearch" placeholder="Search...">
+    <script type="text/javascript" defer>
+        const meta = $('meta[property=elasticsearch');
+        const esHost = meta.data('es-host');
+        const esPort = meta.data('es-port');
+        const esIndex = meta.data('es-index');
+        const args = `size=4&_source=title,url&`
+        $('input#userSearch').marcoPolo({
+            url: `https://${esHost}:${esPort}/${esIndex}/_search?${args}`,
+            minChars: 3,
+            formatItem: function (data, $item) {
+                return data.title || data.url;
+            },
+            formatData: function (data) {
+                return data.hits.hits.map(function(obj) {
+                    return obj._source;
+                });
+            },
+            onSelect: function (data, $item) {
+                window.location = data.url;
+            }
+        });
+    </script>
+</div>
+<div class="clear"></div>
+
+  <header class="article-header">
+    <h1 class="article-title" itemprop="name">Java SDK</h1>
+    <a href="https://github.com/status-im/docs.status.im/edit/develop/source/keycard_api/sdk_duplication.md" class="article-edit-link" title="Mejorar este documento">Edit on Github</a>
+  </header>
+</div>
+<div id="content-wrap">
+  <div id="content" class="wrapper">
+    <div id="content-inner">
+      <aside id="sidebar" role="navigation">
+  <div class="inner">
+    <strong class="sidebar-title">Getting Started</strong><a href="index.html" class="sidebar-link">Overview</a><a href="applet_installation.html" class="sidebar-link">Preparing the card</a><a href="resources.html" class="sidebar-link">Resources</a><strong class="sidebar-title">Java SDK</strong><a href="sdk_installation.html" class="sidebar-link">Installation</a><a href="sdk_connection.html" class="sidebar-link">Connecting the card</a><a href="sdk_preparation.html" class="sidebar-link">Working with the applet</a><a href="sdk_securechannel.html" class="sidebar-link">Secure Channel</a><a href="sdk_authentication.html" class="sidebar-link">User authentication</a><a href="sdk_create_wallet.html" class="sidebar-link">Wallet creation</a><a href="sdk_derivation_sign.html" class="sidebar-link">Derivation & signing</a><a href="sdk_export.html" class="sidebar-link">Exporting keys</a><a href="sdk_duplication.html" class="sidebar-link current">Card duplication</a><strong class="sidebar-title">Protocol</strong><a href="apdu_overview.html" class="sidebar-link">Ovierview</a><a href="apdu_changelog.html" class="sidebar-link">Changelog</a><a href="apdu_select.html" class="sidebar-link">SELECT</a><a href="apdu_init.html" class="sidebar-link">INIT</a><a href="apdu_opensecurechannel.html" class="sidebar-link">OPEN SECURE CHANNEL</a><a href="apdu_mutuallyauthenticate.html" class="sidebar-link">MUTUALLY AUTHENTICATE</a><a href="apdu_pair.html" class="sidebar-link">PAIR</a><a href="apdu_unpair.html" class="sidebar-link">UNPAIR</a><a href="apdu_getstatus.html" class="sidebar-link">GET STATUS</a><a href="apdu_setndef.html" class="sidebar-link">SET NDEF</a><a href="apdu_verifypin.html" class="sidebar-link">VERIFY PIN</a><a href="apdu_changepin.html" class="sidebar-link">CHANGE PIN</a><a href="apdu_unblockpin.html" class="sidebar-link">UNBLOCK PIN</a><a href="apdu_loadkey.html" class="sidebar-link">LOAD KEY</a><a href="apdu_derivekey.html" class="sidebar-link">DERIVE KEY</a><a href="apdu_generatemnemonic.html" class="sidebar-link">GENERATE MNEMONIC</a><a href="apdu_removekey.html" class="sidebar-link">REMOVE KEY</a><a href="apdu_generatekey.html" class="sidebar-link">GENERATE KEY</a><a href="apdu_duplicatekey.html" class="sidebar-link">DUPLICATE KEY</a><a href="apdu_sign.html" class="sidebar-link">SIGN</a><a href="apdu_setpinlesspath.html" class="sidebar-link">SET PINLESS PATH</a><a href="apdu_exportkey.html" class="sidebar-link">EXPORT KEY</a>
+  </div>
+</aside>
+      <article class="article-container" itemscope="" itemtype="http://schema.org/Article">
+        <div class="article-inner">
+          <div class="article">
+            <div class="inner">
+              <div class="article-content" itemprop="articleBody">
+                <h1 id="Card-duplication" class="article-heading"><a href="#Card-duplication" class="headerlink" title="Card duplication"></a>Card duplication<a class="article-anchor" href="#Card-duplication" aria-hidden="true"></a></h1><p>Card duplication is especially relevant when the keys have been generated on-card, without using BIP39 mnemonic (or when this has been destroyed). To make duplication secure the client must not possess the (full) encryption key. For this reason, a scheme where multiple clients are used and none of them has the full key has been devised. From the user point of view, the duplication process goes like this</p>
+<ol>
+<li>Take the card to be duplicated (source) and one or more cards to duplicate to (target)</li>
+<li>On one of the user’s clients initiate the duplication. This involves entering the PIN of each of the involved cards</li>
+<li>Tap all cards to one or more additional clients (the amount must be defined before, the order is irrelevant). These clients do not need to be paired or be trusted, so the user can borrow a friend’s phone without compromising security. This step does not require entering a PIN</li>
+<li>On one of the user’s clients, usually the same which initiated the duplication (must be paired, trusted) finalize the duplication by first tapping the source card and then all target cards, again inserting the PIN for each.</li>
+</ol>
+<p>At the end of procedure, each card will have the same master key, but PIN, PUK and pairing key remain unchanged and are independent from each other. A client could propose changing them to be all the same if desired or do this automatically. All cards are fully functional, so at this point there isn’t any difference between the source card and the targets.</p>
+<p>Since the cards are still protected by the PIN, these can be stored remotely in moderately trusted places to recover from lost or destroyed cards. The duplication has been performed securely since no client ever had the full encryption key and no authentication credentials has been inserted on untrusted clients. For flexibility reason, an arbitrary number of clients can be used. Using a single client could be convenient from an UX point of view, but relies on said client not being compromised. Using 2 or 3 clients greatly increases security. More than 3 clients is probably an overkill.</p>
+<p>From an implementation point of view, we have two different roles a client can take</p>
+<ol>
+<li>The trusted client, starting and performing the duplication</li>
+<li>The (possibly) untrusted clients, only adding entropy to the encryption key</li>
+</ol>
+<p>Both can be implemented by using the <code>CardDuplicator</code> class. On each client, the same instance of the <code>CardDuplicator</code> class must be used for the entire duplication process, otherwise duplication will fail.</p>
+<p>The trusted client must also provide an implementation of <code>DuplicatorCallback</code>. This is needed to retrieve the Pairing and PIN for each card. Example below</p>
+<pre><code class="java">class MyDuplicatorCB implements DuplicatorCallback {
+  Pairing getPairing(ApplicationInfo applicationInfo) {
+    // The Instance UID is the one to use when storing/retrieving pairings
+    byte[] uid = applicationInfo.getInstanceUID();
+
+    // Using the UID try to retrieve the pairing. The method getSavedPairing is an example and is not part of the SDK,
+    // you are responsible of how you store and retrieve pairing data in your app
+    Pairing pairing = getSavedPairing(uid);
+
+    // Optionally, you could prompt the user and make a new pairing if none if given, but this is an UX decision in
+    // your application.
+    if (pairing == null) {
+      pairing = tryToPair();
+    }
+
+    // possibly null, in this case the operation requiring pairing is aborted
+    return pairing;
+  }
+
+  String getPIN(ApplicationInfo applicationInfo, int remainingAttempts) {
+    // Optionally, you might have a cache of PINs for recently used card, but this should be done carefully as the PIN
+    // is sensitive data. You might instead want to just prompt the user each time.
+    String pin = getCachedPIN(applicationInfo.getInstanceUID());
+
+    if (pin == null) {
+      // prompt the user to insert the PIN. You can optionally inform them about how many retry attempts are left.
+      // For UX reason you could also use the instance UID to show the user an identifiable name, this is again
+      // application specific.
+      pin = promptUser(remainingAttempts);
+    }
+
+    // This must not be null. PIN verification will be performed by the CardDuplicator itself, do no not perform it here!
+    return pin;
+  }
+}
+</code></pre>
+<p>The next step to do, is instantiating a CardDuplicator.</p>
+<p>For the trusted client</p>
+<pre><code class="java">// The cmdSet is a KeycardCommandSet instance, duplicatorCallback is an object implementing the DuplicatorCallback
+// interface
+cardDuplicator = new CardDuplicator(cmdSet, duplicatorCallback);
+</code></pre>
+<p>For the untrusted clients</p>
+<pre><code class="java">// apduChannel is a CardChannel instance. Alternatively the same constructor as for the trusted client can be used,
+// passing null as the second parameter.
+cardDuplicator = new CardDuplicator(apduChannel);
+</code></pre>
+<p>Once the instance has been created, depending on the role and state the client must perform a specific action every time a new card is presented. The CardDuplicator keeps track of the action performed on any card, so if the user presents the same card twice an <code>IllegalStateException</code> exception is thrown.</p>
+<p>To start duplication on a card, for example, you might do</p>
+<pre><code class="java">// Client count is the amount of devices contributing to forming the entire key. This means 1 + the number of clients
+// which will be adding entropy (the untrusted clients)
+cardDuplicator.startDuplication(clientCount);
+</code></pre>
+<p>On untrusted clients, to add entropy, you do</p>
+<pre><code class="java">cardDuplicator.addEntropy();
+</code></pre>
+<p>When the full key has been stored on all cards, you then call the following method on the source card on a trusted client</p>
+<pre><code class="java">byte[] exportedKey = cardDuplicator.exportKey();
+</code></pre>
+<p>whereas, from the same client, you invoke on all target cards the following</p>
+<pre><code class="java">// you should then check that the keyUID matches the one of the source card to be sure that the duplication has been
+// performed correctly.
+byte[] keyUID = cardDuplicator.importKey(exportedKey);
+</code></pre>
+
+              </div>
+              <footer class="article-footer">
+                <time class="article-footer-updated" datetime="2019-02-14T03:25:05.109Z" itemprop="dateModified">Última actualización: 2019-02-14</time>
+                
+              </footer>
+            </div>
+          </div>
+        </div>
+      </article>
+    </div>
+  </div>
+</div>
+
+    
+      
+<div class="footer footer--global">
+    <div class="footer-inner">
+        <div class="footer-table">
+            <div class="footer-table__column">
+                <p class="footer-header">Social links</p>
+                <ul class="footer-list">
+                    <li class="footer-link footer-link--fb"><a href="https://www.facebook.com/ethstatus" target="_blank"><span class="footer-icon"></span><span class="footer-link-label">Facebook</span></a></li>
+                    <li class="footer-link footer-link--tw"><a href="https://twitter.com/ethstatus" target="_blank"><span class="footer-icon"></span><span class="footer-link-label">Twitter</span></a></li>
+                    <li class="footer-link footer-link--ri"><a href="https://chat.status.im/#/register" target="_blank"><span class="footer-icon"></span><span class="footer-link-label">Riot</span></a></li>
+                    <li class="footer-link footer-link--gh"><a href="https://github.com/status-im" target="_blank"><span class="footer-icon"></span><span class="footer-link-label">Github</span></a></li>
+                    <li class="footer-link footer-link--rd"><a href="https://www.reddit.com/r/statusim/" target="_blank"><span class="footer-icon"></span><span class="footer-link-label">Reddit</span></a></li>
+                    <li class="footer-link footer-link--yt"><a href="https://www.youtube.com/statusim" target="_blank"><span class="footer-icon"></span><span class="footer-link-label">YouTube</span></a></li>
+                </ul>
+            </div>
+
+            <div class="footer-table__column">
+                <p class="footer-header">More</p>
+                <ul class="footer-list">
+                    <li class="footer-link"><a href="https://status.im/docs/" target="_blank">Status Docs</a></li>
+                    <li class="footer-link"><a href="https://our.status.im/" target="_blank">Status Blog</a></li>
+                    <li class="footer-link"><a href="https://status.im/contribute/" target="_blank">Jobs</a></li>
+                    <li class="footer-link"><a href="https://status.im/privacy-policy.html" target="_blank">Privacy Policy</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-table__column">
+                <p class="footer-header">Projects</p>
+                <ul class="footer-list">
+                    <li class="footer-link"><a href="https://embark.status.im" target="_blank">Embark</a></li>
+                    <li class="footer-link"><a href="https://keycard.status.im/" target="_blank">Keycard</a></li>
+                    <li class="footer-link"><a href="https://incubate.status.im/" target="_blank">Incubate</a></li>
+                    <li class="footer-link"><a href="https://nimbus.status.im/" target="_blank">Nimbus</a></li>
+                </ul>
+            </div>
+        </div>
+    
+        <div class="footer-logo-wrap">
+            <div class="footer-logo-wrap__inner">
+                <a class="footer-logo" href="https://status.im" target="_blank"></a>
+                <div class="footer-address secondary-text">Status Research & Development GmbH<br>Baarerstrasse 10<br>Zug, Switzerland</div>
+            </div>
+        </div>
+    </div>
+</div>
+
+    
+  </div>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.0/clipboard.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.13.1/highlight.min.js"></script>
+<script src="/js/vendor.min.js"></script>
+
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/viz.js/1.7.1/viz.js"></script>
+<script>
+  String.prototype.replaceAll = function(search, replacement) {
+    var target = this;
+    return target.split(search).join(replacement);
+  };
+
+  let vizObjects = document.querySelectorAll('.graphviz');
+
+  for (let item of vizObjects) {
+    let svg = undefined
+    try {
+      svg = Viz(item.textContent.replaceAll('–', '--'), 'svg');
+    } catch(e) {
+      svg = `<pre class="error">${e}</pre>`;
+    }
+    item.outerHTML = svg;
+  }
+</script>
+
+
+<script>
+  /* This POSTs to the clicks-api service to click numbers of downloads of different releases */
+  $(document).ready(function () {
+    $('a.app-download').click(function (ev) {
+      let downloadType = $(this).closest('a').attr('id')
+      $.post(`https://clicks.status.im/clicks/${downloadType}`)
+    });
+  });
+</script>
+
+</body>
+</html>

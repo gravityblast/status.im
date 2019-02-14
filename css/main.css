@@ -3323,3 +3323,7 @@ code {
   line-height: 24px;
   border-radius: 8px;
   color: #5e6687; }
+
+aside#sidebar > div > a.current {
+  color: #4360df;
+  font-weight: 700; }
