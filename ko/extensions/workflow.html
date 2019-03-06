@@ -1,20 +1,20 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ko">
 <head prefix="og: http://ogp.me/ns#"><meta name="generator" content="Hexo 3.8.0">
-  <meta charset="utf-8">
-  <title>Extensions Block | Status</title>
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="utf-8">
+  <title>Workflow | Status</title>
   <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <!-- Canonical links -->
-  <link rel="canonical" href="https://dev.status.im/extensions/concept_block.html">
+  <link rel="canonical" href="https://dev.status.im/ko/extensions/workflow.html">
   <!-- Alternative links -->
   
     
-      <link rel="alternative" hreflang="en" href="https://dev.status.im/extensions/concept_block.html">
+      <link rel="alternative" hreflang="en" href="https://dev.status.im/ko/extensions/workflow.html">
     
-      <link rel="alternative" hreflang="es" href="https://dev.status.im/es/extensions/concept_block.html">
+      <link rel="alternative" hreflang="es" href="https://dev.status.im/es/ko/extensions/workflow.html">
     
-      <link rel="alternative" hreflang="ko" href="https://dev.status.im/ko/extensions/concept_block.html">
+      <link rel="alternative" hreflang="ko" href="https://dev.status.im/ko/ko/extensions/workflow.html">
     
   
   <!-- Icon -->
@@ -33,15 +33,15 @@
 <script src="/js/jquery.marcopolo.js" type="text/javascript"></script>
 <meta property="elasticsearch" data-es-host="search.status.im" data-es-port="443" data-es-index="dev.status.im">
   <meta property="og:image" content="/img/share.png">
-  <meta property="og:title" content="Status, a Mobile Client for Ethereum 2.0">
+  <meta property="og:title" content="Status, a Mobile Client for Ethereum 2.0"><!-- hexo-inject:begin --><!-- hexo-inject:end -->
 </head>
 
 <body>
-  <div id="container">
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><div id="container">
     
       <div class="header">
     <div class="header-left">
-        <a class="logo" href="/"></a>
+        <a class="logo" href="/ko/"></a>
         
 <ul class="main-nav">
     <li class="item--to-show"><a href="https://status.im/get" class="">App</a></li>
@@ -236,8 +236,8 @@
 <div class="clear"></div>
 
   <header class="article-header">
-    <h1 class="article-title" itemprop="name">Extensions Block</h1>
-    <a href="https://github.com/status-im/docs.status.im/edit/develop/source/extensions/concept_block.md" class="article-edit-link" title="Improve this doc">Edit on Github</a>
+    <h1 class="article-title" itemprop="name">Workflow</h1>
+    <a href="https://github.com/status-im/docs.status.im/edit/develop/source/extensions/workflow.md" class="article-edit-link" title="이 문서에 참여하기">Edit on Github</a>
   </header>
 </div>
 <div id="content-wrap">
@@ -245,7 +245,7 @@
     <div id="content-inner">
       <aside id="sidebar" role="navigation">
   <div class="inner">
-    <strong class="sidebar-title">Introduction</strong><a href="index.html" class="sidebar-link">What are extensions?</a><a href="key_concepts.html" class="sidebar-link">Key concepts</a><strong class="sidebar-title">Build</strong><a href="syntax.html" class="sidebar-link">Syntax</a><a href="extension_types.html" class="sidebar-link">Extension types</a><strong class="sidebar-title">Tutorial</strong><a href="../tutorials/extensions_chat_command.html" class="sidebar-link">Chat command</a><a href="../tutorials/extensions_wallet_settings.html" class="sidebar-link">Wallet settings</a><strong class="sidebar-title">References</strong><a href="reference_views.html" class="sidebar-link">Views</a><a href="reference_queries.html" class="sidebar-link">Queries</a><a href="reference_events.html" class="sidebar-link">Events</a><strong class="sidebar-title">Create Your Own</strong><a href="examples.html" class="sidebar-link">Examples</a><a href="play.html" class="sidebar-link">Start Now!</a>
+    <strong class="sidebar-title">소개</strong><a href="index.html" class="sidebar-link">확장 프로그램이 무엇인가요?</a><a href="key_concepts.html" class="sidebar-link">주요 개념</a><a href="workflow.html" class="sidebar-link current">Workflow</a><strong class="sidebar-title">빌드</strong><a href="syntax.html" class="sidebar-link">구문(Syntax)</a><a href="extension_types.html" class="sidebar-link">확장프로그램 종류</a><strong class="sidebar-title">Tutorial</strong><a href="../tutorials/extensions_chat_command.html" class="sidebar-link">튜토리얼</a><a href="../tutorials/extensions_wallet_settings.html" class="sidebar-link">Wallet settings</a><strong class="sidebar-title">참고</strong><a href="reference_views.html" class="sidebar-link">뷰</a><a href="reference_queries.html" class="sidebar-link">쿼리</a><a href="reference_events.html" class="sidebar-link">이벤트</a><strong class="sidebar-title">직접 만들기</strong><a href="examples.html" class="sidebar-link">Examples</a><a href="play.html" class="sidebar-link">지금 시작 하세요!</a>
   </div>
 </aside>
       <article class="article-container" itemscope="" itemtype="http://schema.org/Article">
@@ -253,42 +253,33 @@
           <div class="article">
             <div class="inner">
               <div class="article-content" itemprop="articleBody">
-                <h1 id="Extensions-Block" class="article-heading"><a href="#Extensions-Block" class="headerlink" title="Extensions Block"></a>Extensions Block<a class="article-anchor" href="#Extensions-Block" aria-hidden="true"></a></h1><h2 id="Let-block" class="article-heading"><a href="#Let-block" class="headerlink" title="Let block"></a>Let block<a class="article-anchor" href="#Let-block" aria-hidden="true"></a></h2><p>Let blocks provide lexical scope to all nested elements.<br>Associated bindings are key value pairs, with key either symbol or destructuring patterns.<br>Values can be primitive types or references to queries.</p>
-<pre><code class="clojure">(let [a 1
-      {name :name} [status.user]]
-  [view {}
-   [text {}
-    name]])
-</code></pre>
-<h2 id="Destructuring" class="article-heading"><a href="#Destructuring" class="headerlink" title="Destructuring"></a>Destructuring<a class="article-anchor" href="#Destructuring" aria-hidden="true"></a></h2><h3 id="Sequential-data-structure" class="article-heading"><a href="#Sequential-data-structure" class="headerlink" title="Sequential data structure"></a>Sequential data structure<a class="article-anchor" href="#Sequential-data-structure" aria-hidden="true"></a></h3><p>Extract seq elements by index<br>Elements can be ignored with <code>_</code><br><code>:as symbol</code> denotes the whole sequence</p>
-<h4 id="Examples" class="article-heading"><a href="#Examples" class="headerlink" title="Examples"></a>Examples<a class="article-anchor" href="#Examples" aria-hidden="true"></a></h4><pre><code class="clojure">[[a _ c :as all] [1 2 3 4 5]]
-;; a = 1
-;; c = 3
-;; all = [1 2 3 4 5]
-</code></pre>
-<h3 id="Associative-data-structure" class="article-heading"><a href="#Associative-data-structure" class="headerlink" title="Associative data structure"></a>Associative data structure<a class="article-anchor" href="#Associative-data-structure" aria-hidden="true"></a></h3><p>Extract map values by keys <code>{a :a}</code><br>Optional values via <code>[a 5]</code><br>No namespaced keyword support, no short syntax</p>
-<h4 id="Examples-1" class="article-heading"><a href="#Examples-1" class="headerlink" title="Examples"></a>Examples<a class="article-anchor" href="#Examples-1" aria-hidden="true"></a></h4><pre><code class="clojure">[{a :a a :b [c 4] :c :as all} {:a 1 :b 2 :d 3}]
-;; a = 1
-;; b = 2
-;; c = 4
-;; all = {:a 1 :b 2 :d 3}
-</code></pre>
-<h4 id="Nesting" class="article-heading"><a href="#Nesting" class="headerlink" title="Nesting"></a>Nesting<a class="article-anchor" href="#Nesting" aria-hidden="true"></a></h4><p>Both structure type destructuring can be combined </p>
-<pre><code class="clojure">[{[a1 _ a3] :a {d :d #{f 7} :f [[_ g2] 8}] :b [_ e2] :e :all all}
- {:a [1 2 3] :b {:d 4 :e [5 6] :g [9 10]}}]
-;; a1 = 1
-;; a3 = 3
-;; d = 4
-;; e2 = 5
-;; f = 7
-;; g2 = 10
-;; all = {:a [1 2 3] :b {:d 4 :e [5 6] :g [9 10]}}
-</code></pre>
+                <p>Now is the time to create a first extension.</p>
+<h1 id="Installation" class="article-heading"><a href="#Installation" class="headerlink" title="Installation"></a>Installation<a class="article-anchor" href="#Installation" aria-hidden="true"></a></h1><p>Extensions are currently installed by QR code or URL.</p>
+<p>Once an extension is deployed via the <a href="https://status.im/extensions/play.html" target="_blank" rel="noopener">playground</a>, a unique QR code and universal link are generated for its IPFS hash.</p>
+<p>To install the extension in Status:</p>
+<ol>
+<li>Open the profile screen</li>
+<li>Enable <code>Development mode</code></li>
+<li>Open the <code>Extensions</code> tab</li>
+<li>Tap the <code>+</code> icon</li>
+<li>Enter the extension’s URL or scan its QR code</li>
+</ol>
+<p><img src="./assets/install-extension.gif" alt="Extension installation"></p>
+<h1 id="Development" class="article-heading"><a href="#Development" class="headerlink" title="Development"></a>Development<a class="article-anchor" href="#Development" aria-hidden="true"></a></h1><p>First get familiar with the <a href="https://status.im/extensions/syntax.html" target="_blank" rel="noopener">syntax</a> and decide what extension <a href="https://status.im/extensions/extension_types.html" target="_blank" rel="noopener">type</a> you want to rely on.<br>Then look at existing <a href="https://status.im/extensions/examples.html" target="_blank" rel="noopener">examples</a> to get some inspiration and basis.<br>Finally use the <a href="https://status.im/extensions/play.html" target="_blank" rel="noopener">playground</a> to create and publish your extension.</p>
+<p>The general development workflow consists of:</p>
+<ul>
+<li>hack your extension in the playground</li>
+<li>once you are satisfied (and no errors are left), click <code>publish</code></li>
+<li>scan the newly added QR code from status</li>
+<li>test your extension</li>
+</ul>
+<p>Repeat this flow until you are happy with your extension! It can then be shared using the full playground URL (including your extension hash).</p>
+<p> <em>DISCLAIMER</em> Note that currently there are no debugging facility. Extensions have to be manually tested on a real device.</p>
 
               </div>
               <footer class="article-footer">
-                <time class="article-footer-updated" datetime="2019-01-25T03:20:16.532Z" itemprop="dateModified">Last updated: 2019-01-25</time>
-                <a href="index.html" class="article-footer-next" title="What are extensions?"><span>Next</span><i class="fa fa-chevron-right"></i></a>
+                <time class="article-footer-updated" datetime="2019-03-06T16:08:13.258Z" itemprop="dateModified">마지막 업데이트: 2019-03-06</time>
+                
               </footer>
             </div>
           </div>
@@ -350,6 +341,7 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.0/clipboard.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.13.1/highlight.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_CHTML"></script>
 <script src="/js/vendor.min.js"></script>
 
 
@@ -383,6 +375,31 @@
     });
   });
 </script>
+
+
+  <script src="https://unpkg.com/mermaid@7.1.2/dist/mermaid.min.js"></script>
+  <script>
+    if (window.mermaid) {
+      mermaid.initialize({theme: 'forest'});
+    }
+  </script><!-- hexo-inject:begin --><!-- Begin: Injected MathJax -->
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config("");
+</script>
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+      all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+  });
+</script>
+
+<script type="text/javascript" src="">
+</script>
+<!-- End: Injected MathJax -->
+<!-- hexo-inject:end -->
 
 </body>
 </html>

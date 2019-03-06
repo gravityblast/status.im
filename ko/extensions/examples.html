@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="ko">
 <head prefix="og: http://ogp.me/ns#"><meta name="generator" content="Hexo 3.8.0">
-  <meta charset="utf-8">
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="utf-8">
   <title>Extensions Examples | Status</title>
   <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
   <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -33,11 +33,11 @@
 <script src="/js/jquery.marcopolo.js" type="text/javascript"></script>
 <meta property="elasticsearch" data-es-host="search.status.im" data-es-port="443" data-es-index="dev.status.im">
   <meta property="og:image" content="/img/share.png">
-  <meta property="og:title" content="Status, a Mobile Client for Ethereum 2.0">
+  <meta property="og:title" content="Status, a Mobile Client for Ethereum 2.0"><!-- hexo-inject:begin --><!-- hexo-inject:end -->
 </head>
 
 <body>
-  <div id="container">
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><div id="container">
     
       <div class="header">
     <div class="header-left">
@@ -245,7 +245,7 @@
     <div id="content-inner">
       <aside id="sidebar" role="navigation">
   <div class="inner">
-    <strong class="sidebar-title">소개</strong><a href="index.html" class="sidebar-link">확장 프로그램이 무엇인가요?</a><a href="key_concepts.html" class="sidebar-link">주요 개념</a><strong class="sidebar-title">빌드</strong><a href="syntax.html" class="sidebar-link">구문(Syntax)</a><a href="extension_types.html" class="sidebar-link">확장프로그램 종류</a><strong class="sidebar-title">Tutorial</strong><a href="../tutorials/extensions_chat_command.html" class="sidebar-link">튜토리얼</a><a href="../tutorials/extensions_wallet_settings.html" class="sidebar-link">Wallet settings</a><strong class="sidebar-title">참고</strong><a href="reference_views.html" class="sidebar-link">뷰</a><a href="reference_queries.html" class="sidebar-link">쿼리</a><a href="reference_events.html" class="sidebar-link">이벤트</a><strong class="sidebar-title">직접 만들기</strong><a href="examples.html" class="sidebar-link current">Examples</a><a href="play.html" class="sidebar-link">지금 시작 하세요!</a>
+    <strong class="sidebar-title">소개</strong><a href="index.html" class="sidebar-link">확장 프로그램이 무엇인가요?</a><a href="key_concepts.html" class="sidebar-link">주요 개념</a><a href="workflow.html" class="sidebar-link">Workflow</a><strong class="sidebar-title">빌드</strong><a href="syntax.html" class="sidebar-link">구문(Syntax)</a><a href="extension_types.html" class="sidebar-link">확장프로그램 종류</a><strong class="sidebar-title">Tutorial</strong><a href="../tutorials/extensions_chat_command.html" class="sidebar-link">튜토리얼</a><a href="../tutorials/extensions_wallet_settings.html" class="sidebar-link">Wallet settings</a><strong class="sidebar-title">참고</strong><a href="reference_views.html" class="sidebar-link">뷰</a><a href="reference_queries.html" class="sidebar-link">쿼리</a><a href="reference_events.html" class="sidebar-link">이벤트</a><strong class="sidebar-title">직접 만들기</strong><a href="examples.html" class="sidebar-link current">Examples</a><a href="play.html" class="sidebar-link">지금 시작 하세요!</a>
   </div>
 </aside>
       <article class="article-container" itemscope="" itemtype="http://schema.org/Article">
@@ -332,6 +332,7 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.0/clipboard.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.13.1/highlight.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_CHTML"></script>
 <script src="/js/vendor.min.js"></script>
 
 
@@ -365,6 +366,31 @@
     });
   });
 </script>
+
+
+  <script src="https://unpkg.com/mermaid@7.1.2/dist/mermaid.min.js"></script>
+  <script>
+    if (window.mermaid) {
+      mermaid.initialize({theme: 'forest'});
+    }
+  </script><!-- hexo-inject:begin --><!-- Begin: Injected MathJax -->
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config("");
+</script>
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+      all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+  });
+</script>
+
+<script type="text/javascript" src="">
+</script>
+<!-- End: Injected MathJax -->
+<!-- hexo-inject:end -->
 
 </body>
 </html>

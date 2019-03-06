@@ -1,20 +1,20 @@
 <!DOCTYPE html>
 <html lang="es">
 <head prefix="og: http://ogp.me/ns#"><meta name="generator" content="Hexo 3.8.0">
-  <meta charset="utf-8">
-  <title>Extensions Reference | Status</title>
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="utf-8">
+  <title>Workflow | Status</title>
   <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <!-- Canonical links -->
-  <link rel="canonical" href="https://dev.status.im/es/extensions/concept_reference.html">
+  <link rel="canonical" href="https://dev.status.im/es/extensions/workflow.html">
   <!-- Alternative links -->
   
     
-      <link rel="alternative" hreflang="en" href="https://dev.status.im/es/extensions/concept_reference.html">
+      <link rel="alternative" hreflang="en" href="https://dev.status.im/es/extensions/workflow.html">
     
-      <link rel="alternative" hreflang="es" href="https://dev.status.im/es/es/extensions/concept_reference.html">
+      <link rel="alternative" hreflang="es" href="https://dev.status.im/es/es/extensions/workflow.html">
     
-      <link rel="alternative" hreflang="ko" href="https://dev.status.im/ko/es/extensions/concept_reference.html">
+      <link rel="alternative" hreflang="ko" href="https://dev.status.im/ko/es/extensions/workflow.html">
     
   
   <!-- Icon -->
@@ -33,11 +33,11 @@
 <script src="/js/jquery.marcopolo.js" type="text/javascript"></script>
 <meta property="elasticsearch" data-es-host="search.status.im" data-es-port="443" data-es-index="dev.status.im">
   <meta property="og:image" content="/img/share.png">
-  <meta property="og:title" content="Status, a Mobile Client for Ethereum 2.0">
+  <meta property="og:title" content="Status, a Mobile Client for Ethereum 2.0"><!-- hexo-inject:begin --><!-- hexo-inject:end -->
 </head>
 
 <body>
-  <div id="container">
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><div id="container">
     
       <div class="header">
     <div class="header-left">
@@ -236,8 +236,8 @@
 <div class="clear"></div>
 
   <header class="article-header">
-    <h1 class="article-title" itemprop="name">Extensions Reference</h1>
-    <a href="https://github.com/status-im/docs.status.im/edit/develop/source/extensions/concept_reference.md" class="article-edit-link" title="Mejorar este documento">Edit on Github</a>
+    <h1 class="article-title" itemprop="name">Workflow</h1>
+    <a href="https://github.com/status-im/docs.status.im/edit/develop/source/extensions/workflow.md" class="article-edit-link" title="Mejorar este documento">Edit on Github</a>
   </header>
 </div>
 <div id="content-wrap">
@@ -245,7 +245,7 @@
     <div id="content-inner">
       <aside id="sidebar" role="navigation">
   <div class="inner">
-    <strong class="sidebar-title">Introducción</strong><a href="index.html" class="sidebar-link">¿Qué son las extensiones?</a><a href="key_concepts.html" class="sidebar-link">Conceptos clave</a><strong class="sidebar-title">Construir</strong><a href="syntax.html" class="sidebar-link">Syntax</a><a href="extension_types.html" class="sidebar-link">Tipos de extensión</a><strong class="sidebar-title">Tutorial</strong><a href="../tutorials/extensions_chat_command.html" class="sidebar-link">Tutorial</a><a href="../tutorials/extensions_wallet_settings.html" class="sidebar-link">Wallet settings</a><strong class="sidebar-title">Referencias</strong><a href="reference_views.html" class="sidebar-link">Conceptos</a><a href="reference_queries.html" class="sidebar-link">Consultas</a><a href="reference_events.html" class="sidebar-link">Eventos</a><strong class="sidebar-title">Crea Tus Propias</strong><a href="examples.html" class="sidebar-link">Examples</a><a href="play.html" class="sidebar-link">¡Inicia Ahora!</a>
+    <strong class="sidebar-title">Introducción</strong><a href="index.html" class="sidebar-link">¿Qué son las extensiones?</a><a href="key_concepts.html" class="sidebar-link">Conceptos clave</a><a href="workflow.html" class="sidebar-link current">Workflow</a><strong class="sidebar-title">Construir</strong><a href="syntax.html" class="sidebar-link">Syntax</a><a href="extension_types.html" class="sidebar-link">Tipos de extensión</a><strong class="sidebar-title">Tutorial</strong><a href="../tutorials/extensions_chat_command.html" class="sidebar-link">Tutorial</a><a href="../tutorials/extensions_wallet_settings.html" class="sidebar-link">Wallet settings</a><strong class="sidebar-title">Referencias</strong><a href="reference_views.html" class="sidebar-link">Conceptos</a><a href="reference_queries.html" class="sidebar-link">Consultas</a><a href="reference_events.html" class="sidebar-link">Eventos</a><strong class="sidebar-title">Crea Tus Propias</strong><a href="examples.html" class="sidebar-link">Examples</a><a href="play.html" class="sidebar-link">¡Inicia Ahora!</a>
   </div>
 </aside>
       <article class="article-container" itemscope="" itemtype="http://schema.org/Article">
@@ -253,18 +253,32 @@
           <div class="article">
             <div class="inner">
               <div class="article-content" itemprop="articleBody">
-                <h1 id="Extensions-Reference" class="article-heading"><a href="#Extensions-Reference" class="headerlink" title="Extensions Reference"></a>Extensions Reference<a class="article-anchor" href="#Extensions-Reference" aria-hidden="true"></a></h1><p>All main concepts are identified via references.</p>
-<p>References are identified by a vector of 2 elements: a symbol and a map of properties.</p>
-<p>A reference symbol might have:</p>
+                <p>Now is the time to create a first extension.</p>
+<h1 id="Installation" class="article-heading"><a href="#Installation" class="headerlink" title="Installation"></a>Installation<a class="article-anchor" href="#Installation" aria-hidden="true"></a></h1><p>Extensions are currently installed by QR code or URL.</p>
+<p>Once an extension is deployed via the <a href="https://status.im/extensions/play.html" target="_blank" rel="noopener">playground</a>, a unique QR code and universal link are generated for its IPFS hash.</p>
+<p>To install the extension in Status:</p>
+<ol>
+<li>Open the profile screen</li>
+<li>Enable <code>Development mode</code></li>
+<li>Open the <code>Extensions</code> tab</li>
+<li>Tap the <code>+</code> icon</li>
+<li>Enter the extension’s URL or scan its QR code</li>
+</ol>
+<p><img src="./assets/install-extension.gif" alt="Extension installation"></p>
+<h1 id="Development" class="article-heading"><a href="#Development" class="headerlink" title="Development"></a>Development<a class="article-anchor" href="#Development" aria-hidden="true"></a></h1><p>First get familiar with the <a href="https://status.im/extensions/syntax.html" target="_blank" rel="noopener">syntax</a> and decide what extension <a href="https://status.im/extensions/extension_types.html" target="_blank" rel="noopener">type</a> you want to rely on.<br>Then look at existing <a href="https://status.im/extensions/examples.html" target="_blank" rel="noopener">examples</a> to get some inspiration and basis.<br>Finally use the <a href="https://status.im/extensions/play.html" target="_blank" rel="noopener">playground</a> to create and publish your extension.</p>
+<p>The general development workflow consists of:</p>
 <ul>
-<li>no namespace, defined in the extention definition (e.g. <code>id</code>)</li>
-<li>a single segment namespace, exposed by the host (e.g. <code>store/get</code>)</li>
-<li>a multi segment namespace, exposed by third party extensions registered via ENS (e.g. <code>my-dapp.eth/id</code> with <code>my-dapp.eth</code> an ENS name)</li>
+<li>hack your extension in the playground</li>
+<li>once you are satisfied (and no errors are left), click <code>publish</code></li>
+<li>scan the newly added QR code from status</li>
+<li>test your extension</li>
 </ul>
+<p>Repeat this flow until you are happy with your extension! It can then be shared using the full playground URL (including your extension hash).</p>
+<p> <em>DISCLAIMER</em> Note that currently there are no debugging facility. Extensions have to be manually tested on a real device.</p>
 
               </div>
               <footer class="article-footer">
-                <time class="article-footer-updated" datetime="2019-01-25T03:20:16.532Z" itemprop="dateModified">Última actualización: 2019-01-25</time>
+                <time class="article-footer-updated" datetime="2019-03-06T16:08:13.258Z" itemprop="dateModified">Última actualización: 2019-03-06</time>
                 
               </footer>
             </div>
@@ -327,6 +341,7 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.0/clipboard.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.13.1/highlight.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_CHTML"></script>
 <script src="/js/vendor.min.js"></script>
 
 
@@ -360,6 +375,31 @@
     });
   });
 </script>
+
+
+  <script src="https://unpkg.com/mermaid@7.1.2/dist/mermaid.min.js"></script>
+  <script>
+    if (window.mermaid) {
+      mermaid.initialize({theme: 'forest'});
+    }
+  </script><!-- hexo-inject:begin --><!-- Begin: Injected MathJax -->
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config("");
+</script>
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+      all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+  });
+</script>
+
+<script type="text/javascript" src="">
+</script>
+<!-- End: Injected MathJax -->
+<!-- hexo-inject:end -->
 
 </body>
 </html>
