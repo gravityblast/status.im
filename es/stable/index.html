@@ -1,12 +1,12 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head prefix="og: http://ogp.me/ns#"><meta name="generator" content="Hexo 3.8.0">
   <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="utf-8">
-  <title>Get Status Desktop | Status</title>
+  <title>Grab The Current Stable Builds! | Status</title>
   <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <!-- Canonical links -->
-  <link rel="canonical" href="https://dev.status.im/get_desktop/index.html">
+  <link rel="canonical" href="https://dev.status.im/es/stable/index.html">
   <!-- Alternative links -->
   
   <!-- Icon -->
@@ -33,7 +33,7 @@
     
       <div class="header">
     <div class="header-left">
-        <a class="logo" href="/"></a>
+        <a class="logo" href="/es/"></a>
         
 <ul class="main-nav">
     <li class="item--to-show"><a href="https://status.im/get" class="">App</a></li>
@@ -200,35 +200,135 @@
 
     
     <div class="page-intro wrapper">
-     <div class="get-status-intro get-status-intro--desktop">
-          <h2>Get Status for Desktop</h2>
-          <p>Because making Ethereum accessible from anywhere also means it should be easy to use from where you work.</p>
-      </div>
-
-      <div class="get-status-desktop-warning">
-        <p>This is alpha software and may contain vulnerabilities. Please expect changes.</p>
-      </div>
-
-      <div class="get-status-desktop">
-        <div class="get-status-desktop-links">
-          <ul>
-            <li>
-                <a href="https://status-im.ams3.digitaloceanspaces.com/StatusIm-190307-172340-b63955-release.dmg" class="desktop-link desktop-link--mac link-arrow app-download" id="release:mac" download="">Get for Mac OS</a>
-            </li>
-            <li>
-                <a href="https://status-im.ams3.digitaloceanspaces.com/StatusIm-190307-172340-b63955-release.AppImage" class="desktop-link desktop-link--linux link-arrow app-download" id="release:app" download="">Get for Linux</a>
-            </li>
-            <li>
-                <a href="https://status-im.ams3.digitaloceanspaces.com/StatusIm-190307-172340-b63955-release.exe" class="desktop-link desktop-link--windows link-arrow app-download" id="release:win" download="">Get for Windows</a>
-            </li>
-          </ul>
-        </div>
-        <div class="get-status-desktop-screen">
-          <div class="get-status-desktop-screen-inner"></div>
-        </div>
-
-      </div>
+  <div class="search">
+    <input type="text" name="userSearch" id="userSearch" placeholder="Search...">
+    <script type="text/javascript" defer>
+        const meta = $('meta[property=elasticsearch');
+        const esHost = meta.data('es-host');
+        const esPort = meta.data('es-port');
+        const esIndex = meta.data('es-index');
+        const args = `size=4&_source=title,url&`
+        $('input#userSearch').marcoPolo({
+            url: `https://${esHost}:${esPort}/${esIndex}/_search?${args}`,
+            minChars: 3,
+            formatItem: function (data, $item) {
+                return data.title || data.url;
+            },
+            formatData: function (data) {
+                return data.hits.hits.map(function(obj) {
+                    return obj._source;
+                });
+            },
+            onSelect: function (data, $item) {
+                window.location = data.url;
+            }
+        });
+    </script>
 </div>
+<div class="clear"></div>
+
+  <header class="docs-header">
+    <div class="docs-intro">
+      <h1>Get the latest web</h1>
+      <p>You can download builds from our current release.</p>
+      <br>
+    </div>
+    <ul>
+      <li>
+        <div class="inner">
+          <h3>Documentation</h3>
+          <p>JS API and Extensions</p>
+        </div>
+        <img src="../img/arrow_blue_shaded.svg">
+        <a href="/docs/"></a>
+      </li>
+      <li>
+        <div class="inner">
+          <h3>Build Status</h3>
+          <p>For mobile and desktop</p>
+        </div>
+        <img src="../img/arrow_blue_shaded.svg">
+        <a href="/build_status/"></a>
+      </li>
+      <li>
+        <div class="inner">
+          <h3>Research</h3>
+          <p>Dive deeper...</p>
+        </div>
+        <img src="../img/arrow_blue_shaded.svg">
+        <a href="/research/"></a>
+      </li>
+    </ul>
+  </header>
+</div>
+<div id="content-wrap">
+  <div id="content" class="wrapper">
+    <div id="content-inner">
+      <article class="article-container" itemscope="" itemtype="http://schema.org/Article">
+        <div class="article-inner">
+          <div class="builds-page">
+            <div class="inner">
+                <div class="article-content" itemprop="articleBody">
+                    <div class="builds-headings">
+                        <h1>Status Stable Builds</h1>
+                        <h3>Updated: 2019/03/07 19:43:42 UTC</h3>
+                        <p>If you are interested in more recent but also more unstable builds you can visit our <a href="/nightly/">nightly builds</a> page.</p>
+                        See our <a href="../docs/FAQs.html" target="_blank">General FAQ</a> and 
+                        <a href="../docs/FAQ-desktop.html" target="_blank">Desktop FAQ</a> for more information.
+                    </div>
+                    <div class="builds-builds-wrap">
+                        <div class="box-desktop">
+                            <h2>Linux</h2>
+                            <a href="https://status-im.ams3.digitaloceanspaces.com/StatusIm-190307-172340-b63955-release.AppImage" class="app-download" id="release:app" download="">
+                                <img src="../nightly/img/linux.png" width="150">
+                                <br><br>
+                                <span>StatusIm-190307-172340-b63955-release.AppImage</span>
+                            </a>
+                        </div>
+                        <div class="box-desktop">
+                            <h2>macOS</h2>
+                            <a href="https://status-im.ams3.digitaloceanspaces.com/StatusIm-190307-172340-b63955-release.dmg" class="app-download" id="release:mac" download="">
+                                <img src="../nightly/img/macos.png" width="150">
+                                <br><br>
+                                <span>StatusIm-190307-172340-b63955-release.dmg</span>
+                            </a>
+                        </div>
+                        <div class="box-desktop">
+                            <h2>Windows</h2>
+                            <a href="https://status-im.ams3.digitaloceanspaces.com/StatusIm-190307-172340-b63955-release.exe" class="app-download" id="release:win" download="">
+                                <img src="../nightly/img/windows.png" width="150">
+                                <br><br>
+                                <span>StatusIm-190307-172340-b63955-release.exe</span>
+                            </a>
+                        </div>
+                        <div class="clear"></div>
+                        <div class="box-mobile">
+                            <h2>Android</h2>
+                            <a href="https://status-im.ams3.digitaloceanspaces.com/StatusIm-190307-172340-b63955-release.apk" class="app-download" id="release:apk" download="">
+                                <img src="../nightly/img/qr-apk.png" width="150">
+                                <br><br>
+                                <span>StatusIm-190307-172340-b63955-release.apk</span>
+                            </a>
+                        </div>
+                        <div class="box-mobile">
+                            <h2>iOS</h2>
+                            <a href="https://i.diawi.com/dAyepW" class="app-download" id="release:ios" download="">
+                                <img src="../nightly/img/qr-ios.png" width="150px">
+                                <br><br>
+                                <span>https://i.diawi.com/dAyepW</span>
+                            </a>
+                            <small>(Requires diawi access)</small>
+                        </div>
+                    </div>
+                  </div>
+               </div>
+            </div>
+          </div>
+        </article></div>
+      
+    </div>
+  </div>
+
 
     
       

@@ -2079,7 +2079,7 @@ span.CodeMirror-selectedtext {
   .contribute {
     width: 90%; } }
 
-.nightly-page {
+.builds-page {
   float: left;
   width: 100%;
   margin-top: 24px;
@@ -2098,11 +2098,11 @@ span.CodeMirror-selectedtext {
   padding: 24px;
   height: 370px; }
 
-.nightly-headings {
+.builds-headings {
   padding-left: 20px; }
 
 @media screen and (max-width: 820px) {
-  .nightly-page {
+  .builds-page {
     min-height: 2100px; }
   .box-desktop, .box-mobile {
     width: 100%; } }
