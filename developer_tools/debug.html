@@ -1,20 +1,20 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="en">
 <head prefix="og: http://ogp.me/ns#"><meta name="generator" content="Hexo 3.8.0">
   <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="utf-8">
-  <title>Detecting Status | Status</title>
+  <title>Debug a DApp | Status</title>
   <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <!-- Canonical links -->
-  <link rel="canonical" href="https://dev.status.im/es/developer_tools/detecting_status.html">
+  <link rel="canonical" href="https://dev.status.im/developer_tools/debug.html">
   <!-- Alternative links -->
   
     
-      <link rel="alternative" hreflang="en" href="https://dev.status.im/es/developer_tools/detecting_status.html">
+      <link rel="alternative" hreflang="en" href="https://dev.status.im/developer_tools/debug.html">
     
-      <link rel="alternative" hreflang="es" href="https://dev.status.im/es/es/developer_tools/detecting_status.html">
+      <link rel="alternative" hreflang="es" href="https://dev.status.im/es/developer_tools/debug.html">
     
-      <link rel="alternative" hreflang="ko" href="https://dev.status.im/ko/es/developer_tools/detecting_status.html">
+      <link rel="alternative" hreflang="ko" href="https://dev.status.im/ko/developer_tools/debug.html">
     
   
   <!-- Icon -->
@@ -41,7 +41,7 @@
     
       <div class="header">
     <div class="header-left">
-        <a class="logo" href="/es/"></a>
+        <a class="logo" href="/"></a>
         
 <ul class="main-nav">
     <li class="item--to-show"><a href="https://status.im/get" class="">App</a></li>
@@ -236,8 +236,8 @@
 <div class="clear"></div>
 
   <header class="article-header">
-    <h1 class="article-title" itemprop="name">Detecting Status</h1>
-    <a href="https://github.com/status-im/docs.status.im/edit/develop/source/developer_tools/detecting_status.md" class="article-edit-link" title="Mejorar este documento">Edit on Github</a>
+    <h1 class="article-title" itemprop="name">Debug a DApp</h1>
+    <a href="https://github.com/status-im/docs.status.im/edit/develop/source/developer_tools/debug.md" class="article-edit-link" title="Improve this doc">Edit on Github</a>
   </header>
 </div>
 <div id="content-wrap">
@@ -245,7 +245,7 @@
     <div id="content-inner">
       <aside id="sidebar" role="navigation">
   <div class="inner">
-    <strong class="sidebar-title">Web3 Para Todos</strong><a href="index.html" class="sidebar-link">Herramientas de Desarrollo de Status</a><strong class="sidebar-title">Conectando a web3</strong><a href="access_eth_provider.html" class="sidebar-link">Accediendo a los Proveedores de Web3</a><a href="detecting_status.html" class="sidebar-link current">Detectando Status</a><a href="debug.html" class="sidebar-link">Debug</a><strong class="sidebar-title">Optimización para Móvil</strong><a href="assets_guidelines.html" class="sidebar-link">Activos y Pautas</a><a href="status_web_api.html" class="sidebar-link">API de JavaScript</a><a href="http_debugging.html" class="sidebar-link">Cómo Probar Y Depurar</a><strong class="sidebar-title">Sumisión de tu DApp</strong><a href="add_your_dapp.html" class="sidebar-link">Cómo Enviar</a><a href="troubleshooting_dapps.html" class="sidebar-link">Solución de problemas</a><strong class="sidebar-title">Adaptar Status A Tus Necesidades</strong><a href="enable_chat.html" class="sidebar-link">Agregar Tu Propio Chat</a><a href="add_your_own_network.html" class="sidebar-link">Añade Tu Propia Red</a><strong class="sidebar-title">Extensiones [WIP]</strong><a href="../extensions/" class="sidebar-link">Introducción</a><strong class="sidebar-title">Fiddle</strong><a href="/fiddle/" class="sidebar-link">Fiddle de Status</a><strong class="sidebar-title">Historial de Componentes</strong><a href="https://status-im.github.io/storybook/" class="sidebar-link">Historial de Componentes de Status React</a>
+    <strong class="sidebar-title">Web3 For Everyone</strong><a href="index.html" class="sidebar-link">Status Developer Tools</a><strong class="sidebar-title">Connecting to web3</strong><a href="access_eth_provider.html" class="sidebar-link">Accessing Web3 Providers</a><a href="detecting_status.html" class="sidebar-link">Detecting Status</a><a href="debug.html" class="sidebar-link current">Debug</a><strong class="sidebar-title">Optimizing for Mobile</strong><a href="assets_guidelines.html" class="sidebar-link">Assets and Guidelines</a><a href="status_web_api.html" class="sidebar-link">JavaScript API</a><a href="http_debugging.html" class="sidebar-link">How to Test & Debug</a><strong class="sidebar-title">Submitting Your DApp</strong><a href="add_your_dapp.html" class="sidebar-link">How To Submit</a><a href="troubleshooting_dapps.html" class="sidebar-link">Troubleshooting</a><strong class="sidebar-title">Adapt Status To Your Needs</strong><a href="enable_chat.html" class="sidebar-link">Add Your Own Chat</a><a href="add_your_own_network.html" class="sidebar-link">Add Your Own Network</a><strong class="sidebar-title">Extensions [WIP]</strong><a href="../extensions/" class="sidebar-link">Introduction</a><strong class="sidebar-title">Fiddle</strong><a href="/fiddle/" class="sidebar-link">Status Fiddle</a><strong class="sidebar-title">Storybook</strong><a href="https://status-im.github.io/storybook/" class="sidebar-link">Status React Storybook</a>
   </div>
 </aside>
       <article class="article-container" itemscope="" itemtype="http://schema.org/Article">
@@ -253,15 +253,17 @@
           <div class="article">
             <div class="inner">
               <div class="article-content" itemprop="articleBody">
-                <h1 id="Set-Your-Status" class="article-heading"><a href="#Set-Your-Status" class="headerlink" title="Set Your Status!"></a>Set Your Status!<a class="article-anchor" href="#Set-Your-Status" aria-hidden="true"></a></h1><p>The beauty of Status is that any user accessing your DApp through our browser has already installed everything they need to access the Ethereum network and make transactions.</p>
-<p>You can detect our browser by checking if <code>window.ethereum.isStatus</code> returns true.</p>
-<p>Knowing that your users are on a mobile browser means that you can put aside any instructions about how to set up a wallet.</p>
-<p>You can also provide Status-specific information or show our logo, if you’d like. Our brand assets are available <a href="https://github.com/status-im/design-guides" target="_blank" rel="noopener">on GitHub</a>.</p>
+                <h1 id="Debug-a-DApp" class="article-heading"><a href="#Debug-a-DApp" class="headerlink" title="Debug a DApp"></a>Debug a DApp<a class="article-anchor" href="#Debug-a-DApp" aria-hidden="true"></a></h1><p>You can debug your DApp from the confort of your browser. Simply make sure that:</p>
+<ul>
+<li>your phone is connected to your WIFI</li>
+<li>you are using a nightly build with dev mode enabled</li>
+</ul>
+<p>Find more details in the webview debugging <a href="https://github.com/react-native-community/react-native-webview/blob/master/docs/Debugging.md" target="_blank" rel="noopener">guide</a>.</p>
 
               </div>
               <footer class="article-footer">
-                <time class="article-footer-updated" datetime="2019-03-15T10:56:53.176Z" itemprop="dateModified">Última actualización: 2019-03-15</time>
-                
+                <time class="article-footer-updated" datetime="2019-03-15T10:56:53.176Z" itemprop="dateModified">Last updated: 2019-03-15</time>
+                <a href="detecting_status.html" class="article-footer-prev" title="Detecting Status"><i class="fa fa-chevron-left"></i><span>Prev</span></a><a href="assets_guidelines.html" class="article-footer-next" title="Assets and Guidelines"><span>Next</span><i class="fa fa-chevron-right"></i></a>
               </footer>
             </div>
           </div>
