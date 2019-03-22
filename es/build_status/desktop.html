@@ -253,41 +253,12 @@
           <div class="article">
             <div class="inner">
               <div class="article-content" itemprop="articleBody">
-                <h1 id="Build-Status-Desktop-for-Yourself" class="article-heading"><a href="#Build-Status-Desktop-for-Yourself" class="headerlink" title="Build Status Desktop for Yourself!"></a>Build Status Desktop for Yourself!<a class="article-anchor" href="#Build-Status-Desktop-for-Yourself" aria-hidden="true"></a></h1><h2 id="Prerequisites" class="article-heading"><a href="#Prerequisites" class="headerlink" title="Prerequisites"></a>Prerequisites<a class="article-anchor" href="#Prerequisites" aria-hidden="true"></a></h2><p>You will need the following tools installed (running <code>make setup</code> is the preferred way to install prerequisites, as it will ensure you have the versions specified in the <a href="https://github.com/status-im/status-react/blob/develop/.TOOLVERSIONS" target="_blank" rel="noopener">.TOOLVERSIONS</a> file):</p>
-<ul>
-<li>Clojure CLI tool <code>clj</code> <a href="https://clojure.org/guides/getting_started#_installation_on_mac_via_code_brew_code" target="_blank" rel="noopener">https://clojure.org/guides/getting_started#_installation_on_mac_via_code_brew_code</a></li>
-<li>Node.js</li>
-<li>yarn (can be installed via <code>npm install -g yarn</code>)</li>
-<li>CMake 3.1.0 or higher</li>
-<li>Additional packages: <code>extra-cmake-modules</code>; Keychain access on <code>Linux</code> requires <code>libgnome-keyring0</code>.<ul>
-<li>Linux: <code>sudo apt install extra-cmake-modules libgnome-keyring0</code></li>
-<li>MacOS: <code>brew install kde-mac/kde/kf5-extra-cmake-modules</code></li>
-</ul>
-</li>
-<li>Linux and MacOS:<ul>
-<li>Qt 5.11.2 or higher. You’ll only need macOS and QtWebEngine components installed.<ul>
-<li>Linux: Qt 5.11.2 is available here: <a href="https://download.qt.io/archive/qt/5.11/5.11.2/qt-opensource-linux-x64-5.11.2.run" target="_blank" rel="noopener">https://download.qt.io/archive/qt/5.11/5.11.2/qt-opensource-linux-x64-5.11.2.run</a></li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-<h2 id="Qt-setup-Linux-and-MacOS-only" class="article-heading"><a href="#Qt-setup-Linux-and-MacOS-only" class="headerlink" title="Qt setup (Linux and MacOS only)"></a>Qt setup (Linux and MacOS only)<a class="article-anchor" href="#Qt-setup-Linux-and-MacOS-only" aria-hidden="true"></a></h2><p>Set Qt’s environment variables:</p>
-<ul>
-<li>set <code>QT_PATH</code> to point to the location of Qt’s distribution. It should not end with a slash.<ul>
-<li>On MacOS and Linux: <code>export QT_PATH=/Users/&lt;user_name&gt;/Qt/5.11.2</code></li>
-</ul>
-</li>
-<li>add path to qmake to <code>PATH</code> environment variable via<ul>
-<li>On MacOS: <code>export PATH=&lt;QT_PATH&gt;/clang_64/bin:$PATH</code></li>
-<li>On Linux: <code>export PATH=&lt;QT_PATH&gt;/gcc_64/bin:$PATH</code></li>
-</ul>
-</li>
-</ul>
-<h1 id="Building-a-release-package" class="article-heading"><a href="#Building-a-release-package" class="headerlink" title="Building a release package"></a>Building a release package<a class="article-anchor" href="#Building-a-release-package" aria-hidden="true"></a></h1><p>Run the following commands to build a Desktop package for the host environment:</p>
+                <h1 id="Build-Status-Desktop-for-Yourself" class="article-heading"><a href="#Build-Status-Desktop-for-Yourself" class="headerlink" title="Build Status Desktop for Yourself!"></a>Build Status Desktop for Yourself!<a class="article-anchor" href="#Build-Status-Desktop-for-Yourself" aria-hidden="true"></a></h1><h1 id="Building-a-release-package" class="article-heading"><a href="#Building-a-release-package" class="headerlink" title="Building a release package"></a>Building a release package<a class="article-anchor" href="#Building-a-release-package" aria-hidden="true"></a></h1><p>Run the following commands to build a Desktop package for the host environment:</p>
 <pre><code class="bash">git clone https://github.com/status-im/status-react.git
 cd status-react
-npm install -g react-native-cli
+make setup
+. ~/.nix-profile/etc/profile.d/nix.sh
+make shell
 make prepare-desktop
 make release-desktop
 </code></pre>
@@ -298,15 +269,19 @@ npm update
 npm install -g
 </code></pre>
 <h2 id="To-setup-dev-builds-of-status-react-for-Desktop" class="article-heading"><a href="#To-setup-dev-builds-of-status-react-for-Desktop" class="headerlink" title="To setup dev builds of status-react for Desktop"></a>To setup dev builds of status-react for Desktop<a class="article-anchor" href="#To-setup-dev-builds-of-status-react-for-Desktop" aria-hidden="true"></a></h2><ol>
-<li>Run the following commands:<pre><code class="bash"> git clone https://github.com/status-im/status-react.git
+<li><p>Run the following commands:</p>
+<pre><code class="bash"> git clone https://github.com/status-im/status-react.git
  cd status-react
- make prepare-desktop
+ make setup
+ . ~/.nix-profile/etc/profile.d/nix.sh
+ make shell
+ make startdev-desktop # note: wait until sources are compiled
 </code></pre>
 </li>
-<li>In separate terminal tab: <code>npm start</code> (note: it starts react-native packager )</li>
+<li><p>In separate terminal tab: <code>make react-native</code> (note: it starts react-native packager)</p>
+</li>
 <li>In separate terminal tab: <code>node ./ubuntu-server.js</code></li>
-<li>In separate terminal tab: <code>make watch-desktop</code> (note: wait until sources are compiled)</li>
-<li>In separate terminal tab: <code>react-native run-desktop</code></li>
+<li>In separate terminal tab: <code>make run-desktop</code></li>
 </ol>
 <h2 id="Notes" class="article-heading"><a href="#Notes" class="headerlink" title="Notes"></a>Notes<a class="article-anchor" href="#Notes" aria-hidden="true"></a></h2><ul>
 <li><p>in order to run multiple Status Desktop instances, please specify values for the <code>REACT_SERVER_PORT</code>, <code>STATUS_NODE_PORT</code>, <code>STATUS_DATA_DIR</code> environment variables:</p>
@@ -370,7 +345,7 @@ rd /S /Q %LOCALAPPDATA%\Status
 
               </div>
               <footer class="article-footer">
-                <time class="article-footer-updated" datetime="2019-01-25T03:20:16.524Z" itemprop="dateModified">Última actualización: 2019-01-25</time>
+                <time class="article-footer-updated" datetime="2019-03-22T03:32:58.065Z" itemprop="dateModified">Última actualización: 2019-03-22</time>
                 
               </footer>
             </div>
