@@ -267,6 +267,25 @@
  {:description &quot;Some string&quot;
   :on-send     [event {:keyword &quot;value&quot;}]}
 </code></pre>
+<h2 id="LifeCycle" class="article-heading"><a href="#LifeCycle" class="headerlink" title="LifeCycle"></a>LifeCycle<a class="article-anchor" href="#LifeCycle" aria-hidden="true"></a></h2><p>An extension can define a number of <code>events</code> that will be triggered during its lifecycle:</p>
+<ul>
+<li><code>on-installation</code> when a user installs an extension</li>
+<li><code>on-activation</code> when a user activates an extension</li>
+<li><code>on-deinstallation</code> when a user desinstalls an extension</li>
+<li><code>on-deactivation</code> when a user deactivates an extension</li>
+</ul>
+<p>Activcation occurs right after an extension is installed and when it is (de-)activated in the extensions settings panel.</p>
+<pre><code class="clojure">{lifecycle
+ {:on-installation   [on-installation]
+  :on-activation     [on-activation]
+  :on-deinstallation [on-deinstallation]
+  :on-deactivation   [on-deactivation]}}
+</code></pre>
+<p><code>ephemeral?</code> extension are not installed and won’t be persisted after an application restart. The <code>on-activation</code> will be called during their installation.</p>
+<pre><code class="clojure">{lifecycle
+ {:ephemeral     true
+  :on-activation [on-activation]}}
+</code></pre>
 <h2 id="Hook-syntax" class="article-heading"><a href="#Hook-syntax" class="headerlink" title="Hook syntax"></a>Hook syntax<a class="article-anchor" href="#Hook-syntax" aria-hidden="true"></a></h2><p>Each <a href="https://status.im/extensions/extension_types.html" target="_blank" rel="noopener">hook type</a> requires specific details to be mapped and declared according to the hook’s specifications. </p>
 <p>To learn about the available hooks and their specifications, see <a href="https://status.im/extensions/extension_types.html" target="_blank" rel="noopener">extension types</a>.</p>
 <p>This map is associated to a unique identifier, which follows the hook’s root identifier.</p>
@@ -338,13 +357,22 @@
 </code></pre>
 <h3 id="Local-events" class="article-heading"><a href="#Local-events" class="headerlink" title="Local events"></a>Local events<a class="article-anchor" href="#Local-events" aria-hidden="true"></a></h3><p>Local events define <code>let blocks</code> that can destructure arguments, allowing a developer to access relevant information.</p>
 <pre><code class="clojure">(let [{name :name} properties]
-  [button {:on-click [store/put {:key &quot;name&quot; :value {:key name}}]}
-   &quot;Click me !&quot;])
+  [http/put {:data &quot;Some content for ${name}&quot;}])
+</code></pre>
+<p>Multiple events can be defined in a let block, potentially guarded by a <code>if</code> condition:</p>
+<pre><code class="clojure">(let [{cond? :cond?} properties]
+  [http/put {:data &quot;Some content&quot;}]
+  (if cond?
+    [http/put {:data &quot;Some extra conditional content&quot;}]))
+</code></pre>
+<p>Queries can also be resolved in let block, giving access to a static view of the local application state.</p>
+<pre><code class="clojure">(let [{name :name} [chat/contact {:id &quot;&quot;}]]
+  [http/put {:data &quot;Some content for ${name}&quot;}])
 </code></pre>
 
               </div>
               <footer class="article-footer">
-                <time class="article-footer-updated" datetime="2019-03-06T16:08:13.258Z" itemprop="dateModified">Última actualización: 2019-03-06</time>
+                <time class="article-footer-updated" datetime="2019-04-01T06:28:55.784Z" itemprop="dateModified">Última actualización: 2019-04-01</time>
                 
               </footer>
             </div>
