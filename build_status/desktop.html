@@ -256,9 +256,6 @@
                 <h1 id="Build-Status-Desktop-for-Yourself" class="article-heading"><a href="#Build-Status-Desktop-for-Yourself" class="headerlink" title="Build Status Desktop for Yourself!"></a>Build Status Desktop for Yourself!<a class="article-anchor" href="#Build-Status-Desktop-for-Yourself" aria-hidden="true"></a></h1><h1 id="Building-a-release-package" class="article-heading"><a href="#Building-a-release-package" class="headerlink" title="Building a release package"></a>Building a release package<a class="article-anchor" href="#Building-a-release-package" aria-hidden="true"></a></h1><p>Run the following commands to build a Desktop package for the host environment:</p>
 <pre><code class="bash">git clone https://github.com/status-im/status-react.git
 cd status-react
-make setup
-. ~/.nix-profile/etc/profile.d/nix.sh
-make shell
 make release-desktop
 </code></pre>
 <p>For a Windows build cross-compiled from Linux, replace <code>make release-desktop</code> with <code>make release-windows-desktop</code>.</p>
@@ -271,15 +268,12 @@ npm install -g
 <li><p>Run the following commands:</p>
 <pre><code class="bash"> git clone https://github.com/status-im/status-react.git
  cd status-react
- make setup
- . ~/.nix-profile/etc/profile.d/nix.sh
- make shell
  make startdev-desktop # note: wait until sources are compiled
 </code></pre>
 </li>
 <li><p>In separate terminal tab: <code>make react-native</code> (note: it starts react-native packager)</p>
 </li>
-<li>In separate terminal tab: <code>node ./ubuntu-server.js</code></li>
+<li>In separate terminal tab: <code>make desktop-server</code> (note: it runs <code>node ./ubuntu-server.js</code>)</li>
 <li>In separate terminal tab: <code>make run-desktop</code></li>
 </ol>
 <h2 id="Notes" class="article-heading"><a href="#Notes" class="headerlink" title="Notes"></a>Notes<a class="article-anchor" href="#Notes" aria-hidden="true"></a></h2><ul>
@@ -288,7 +282,7 @@ npm install -g
 export STATUS_NODE_PORT=12345 # no need to specify this if just running dev instance alongside release build
 export STATUS_DATA_DIR=~/status-files/data1 # this is where Realm data files, Geth node data, and logs will reside; also not strictly needed for dev alongside release
 </code></pre>
-<p>Please be sure to run the instance with default parameters (without any explicit specification of variables above) first, as otherwise it will kill <code>ubuntu-server</code> processes that belong to other instances.</p>
+<p>The Makefile already specifies default values that allow you to run a debug instance without clashing with the release version.<br>Please be sure to run the instance with default parameters (without any explicit specification of variables above) first, as otherwise it will kill <code>ubuntu-server</code> processes that belong to other instances.</p>
 </li>
 <li><p>for complete cleanup of generated files and Realm data, issue:</p>
 <pre><code class="bash">git clean -fdx
@@ -344,7 +338,7 @@ rd /S /Q %LOCALAPPDATA%\Status
 
               </div>
               <footer class="article-footer">
-                <time class="article-footer-updated" datetime="2019-03-26T12:53:15.643Z" itemprop="dateModified">Last updated: 2019-03-26</time>
+                <time class="article-footer-updated" datetime="2019-04-09T14:58:37.110Z" itemprop="dateModified">Last updated: 2019-04-09</time>
                 <a href="intro_desktop.html" class="article-footer-prev" title="Getting Setup"><i class="fa fa-chevron-left"></i><span>Prev</span></a><a href="../tutorials/desktop_inline_eval.html" class="article-footer-next" title="Learn About Our Tools"><span>Next</span><i class="fa fa-chevron-right"></i></a>
               </footer>
             </div>
