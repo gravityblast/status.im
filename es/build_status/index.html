@@ -350,13 +350,12 @@ make startdev-android-real
 <li><a href="https://gist.github.com/zhy0/66d4c5eb3bcfca54be2a0018c3058931" target="_blank" rel="noopener">Ubuntu Linux</a>;</li>
 <li><a href="https://wiki.archlinux.org/index.php/android" target="_blank" rel="noopener">Arch Linux</a> (can also be useful for other Linux distributions).</li>
 </ul>
-<h2 id="Optional-Advanced-build-notes" class="article-heading"><a href="#Optional-Advanced-build-notes" class="headerlink" title="Optional: Advanced build notes"></a>Optional: Advanced build notes<a class="article-anchor" href="#Optional-Advanced-build-notes" aria-hidden="true"></a></h2><h3 id="Locally-built-status-go-dependency" class="article-heading"><a href="#Locally-built-status-go-dependency" class="headerlink" title="Locally built status-go dependency"></a>Locally built status-go dependency<a class="article-anchor" href="#Locally-built-status-go-dependency" aria-hidden="true"></a></h3><p>If you need to test a mobile build with a custom locally built status-go dependency, you can build it by following this process:</p>
+<h2 id="Optional-Advanced-build-notes" class="article-heading"><a href="#Optional-Advanced-build-notes" class="headerlink" title="Optional: Advanced build notes"></a>Optional: Advanced build notes<a class="article-anchor" href="#Optional-Advanced-build-notes" aria-hidden="true"></a></h2><h3 id="Building-and-using-forks-of-status-go" class="article-heading"><a href="#Building-and-using-forks-of-status-go" class="headerlink" title="Building and using forks of status-go"></a>Building and using forks of status-go<a class="article-anchor" href="#Building-and-using-forks-of-status-go" aria-hidden="true"></a></h3><p>If you need to use a branch of a status-go fork as a dependency of status-react, you can have the scripts build it by following this process:</p>
 <ol>
-<li>Ensure the <code>STATUS_GO_HOME</code> environment variable is set to the path of your local status-go repo (see <a href="https://status.im/build_status/status_go.html" target="_blank" rel="noopener">Build status-go</a> page for more information on requirements);</li>
-<li>From the root of the status-react repo, run <code>scripts/bundle-status-go.sh &lt;platform&gt;</code>, where <code>platform</code> can be <code>android</code> or <code>ios</code>;</li>
-<li>This will generate a build artifact under the status-react repo, and will be considered prioritary in the dependencies until it is deleted (e.g. by running <code>make clean</code> or <code>make prod-build</code>).</li>
+<li>Change the contents of the <code>STATUS_GO_OWNER</code> file at the root of the project to contain the name of the owner of your GitHub status-go fork;</li>
+<li>From the root of the status-react repo, run <code>scripts/update-status-go.sh &lt;branch-name&gt;</code>, where <code>branch-name</code> is the name of the branch you want to build;</li>
+<li>If you are inside an Nix shell, make sure you exit it before starting a new build, so that the new dependency is taken into account.</li>
 </ol>
-<p><em>Note:</em> Desktop builds currently always download and build status-go locally.</p>
 <h2 id="Debugging-tips" class="article-heading"><a href="#Debugging-tips" class="headerlink" title="Debugging tips"></a>Debugging tips<a class="article-anchor" href="#Debugging-tips" aria-hidden="true"></a></h2><h3 id="Inspecting-app-DB-inside-Clojure-REPL" class="article-heading"><a href="#Inspecting-app-DB-inside-Clojure-REPL" class="headerlink" title="Inspecting app DB inside Clojure REPL"></a>Inspecting app DB inside Clojure REPL<a class="article-anchor" href="#Inspecting-app-DB-inside-Clojure-REPL" aria-hidden="true"></a></h3><p>E.g. if you want to check existing accounts in the device, run this function in the REPL:</p>
 <pre><code class="clojure">(get-in @re-frame.db.app-db [:accounts/accounts])
 </code></pre>
@@ -379,7 +378,7 @@ cd node_modules/react-native/third-party/glog-0.3.4/ &amp;&amp; ../../scripts/io
 
               </div>
               <footer class="article-footer">
-                <time class="article-footer-updated" datetime="2019-03-26T12:53:15.643Z" itemprop="dateModified">Última actualización: 2019-03-26</time>
+                <time class="article-footer-updated" datetime="2019-04-09T13:18:22.237Z" itemprop="dateModified">Última actualización: 2019-04-09</time>
                 
               </footer>
             </div>

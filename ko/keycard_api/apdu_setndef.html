@@ -259,16 +259,16 @@
 <li>P1 = 0x00</li>
 <li>P2 = 0x00</li>
 <li>Data = the data to store</li>
-<li>Response SW = 0x9000 on success, 0x6A80 on invalid data</li>
+<li>Response SW = 0x9000 on success</li>
 <li>Preconditions: Secure Channel must be opened, PIN must be verified</li>
 <li>Capability: NDEF</li>
 </ul>
 <p>Used to set the content of the data file owned by the NDEF applet. This allows changing the behavior of Android and other clients when tapping the card with no open client. As an example, it could be used to launch a specific wallet software.</p>
-<p>The data is stored as is. A check is made that the first 2 bytes, read as a MSB first short, are equal to the Lc field minus 2 (the length of the field itself). This does not ensure that the NDEF record is valid, but ensures that no out of bound access happens.</p>
+<p>If the first 2 bytes, read as a MSB first short, are equal to the Lc field minus 2 (the length of the field itself) then the data is stored as is. Otherwise Lc is extended to a 16-bit value and appended to the stored data.</p>
 
               </div>
               <footer class="article-footer">
-                <time class="article-footer-updated" datetime="2019-02-14T03:25:05.105Z" itemprop="dateModified">마지막 업데이트: 2019-02-14</time>
+                <time class="article-footer-updated" datetime="2019-04-09T13:18:22.237Z" itemprop="dateModified">마지막 업데이트: 2019-04-09</time>
                 
               </footer>
             </div>

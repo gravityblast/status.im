@@ -271,10 +271,33 @@
 <li>The output of the SHA-512 algorithm is split in two parts of 256-bit. The first part is used as the encryption key and the second part is used as the MAC key for further communication.</li>
 </ol>
 <p>The seed IV is used by the client as the IV for the next encrypted APDU.</p>
+<h2 id="Encrypted-APDUs" class="article-heading"><a href="#Encrypted-APDUs" class="headerlink" title="Encrypted APDUs"></a>Encrypted APDUs<a class="article-anchor" href="#Encrypted-APDUs" aria-hidden="true"></a></h2><p>After a successful OPEN SECURE CHANNEL command all communication between card and client is encrypted. Note that only the data fields of C-APDU are encrypted, which means that CLA, INS, P1, P2 for C-APDU are plaintext. This means no sensitive data should be sent in these parameters. Additionally a MAC is calculated for the entire APDU, including the unencrypted fields.</p>
+<p>Because R-APDU can only contain data if their SW is a success or warning status word (0x9000, 0x62XX, 0x63XX), when the secure channel is open all responses will have SW 0x9000. The actual SW is always appended at the end of the response data before encryption, which means the client must interpret the last two bytes of the plaintext response as the SW. An exception to this is SW 0x6982, which indicates that the SecureChannel has been aborted and as such is returned without any MAC.</p>
+<p>To encrypt the data both the card and the client do the following:</p>
+<ol>
+<li>The data is padded using the ISO/IEC 9797-1 Method 2 algorithm.</li>
+<li>The data is encrypted using AES in CBC mode using the session key.</li>
+<li>An AES CBC-MAC is calculated over the entire APDU data</li>
+<li>The data field of the APDU is set to the MAC followed by the encrypted data.</li>
+</ol>
+<p>To decrypt the data both the card and the client do the following:</p>
+<ol>
+<li>The first 16 bytes of the APDU data are the MAC to be verified</li>
+<li>The remaining data is decrypted using AES in CBC mode using the session key.</li>
+<li>The padding is removed.</li>
+</ol>
+<p>The IV used for the encryption is the last seen MAC from the counterpart. This optimizes the number of transmitted bytes and guarantees protection from replay attacks. For the MAC generation, a zero IV is always used.</p>
+<p>MAC generation for C-APDUs is calculated on the concatenation of CLA INS P1 P2 LC 00 00 00 00 00 00 00 00 00 00 00 and the encrypted data field. The 11-byte long padding does not become part of the data field and does not affect LC</p>
+<p>MAC generation fo R-APDUs is calculated on the concatenation of Lr 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 and the encrypted data field. The 15-byte long padding does not become part of the response field. Lr is the length of the encrypted response data field and is not transmitted.</p>
+<p>Because AES in CBC mode requires the data field length in bytes to be a multiple of 16, the maximum effective APDU size becomes 240 bytes. Of these 16 bytes are used for the MAC and minimum of 1 byte for padding, making the maximum payload size in a single APDU 223 bytes, meaning about a 13,5% overhead.</p>
+<h2 id="Error-conditions" class="article-heading"><a href="#Error-conditions" class="headerlink" title="Error conditions"></a>Error conditions<a class="article-anchor" href="#Error-conditions" aria-hidden="true"></a></h2><ol>
+<li>If a sensitive command is received without an active Secure Channel, the card shall respond with SW 0x6985 (SW_CONDITIONS_NOT_SATISFIED)</li>
+<li>If a MAC cannot be verified the card shall respond 0x6982 and the Secure Channel must be closed</li>
+</ol>
 
               </div>
               <footer class="article-footer">
-                <time class="article-footer-updated" datetime="2019-02-14T03:25:05.101Z" itemprop="dateModified">마지막 업데이트: 2019-02-14</time>
+                <time class="article-footer-updated" datetime="2019-04-09T13:18:22.237Z" itemprop="dateModified">마지막 업데이트: 2019-04-09</time>
                 
               </footer>
             </div>

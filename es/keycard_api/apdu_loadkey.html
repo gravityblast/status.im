@@ -281,11 +281,11 @@
 </li>
 </ul>
 <p>If P1 is 0x03 a 64 byte sequence generated according to the BIP39 specifications is expected. The master key will be generated according to the <a href="https://github.com/bitcoin/bips/blob/master/bip-0032.mediawiki" target="_blank" rel="noopener">BIP32</a> specifications. This is only supported if the hardware supports public key derivation.</p>
-<p>This command is used to load or replace the keypair used for signing on the card. This command always aborts open signing sessions, if any. Unless a DERIVE KEY is sent, a subsequent SIGN command will use this keypair for signature.</p>
+<p>This command is used to load or replace the keypair used for signing on the card. The PIN-less path will be reset. Unless a DERIVE KEY is sent, a subsequent SIGN command will use this keypair for signature.</p>
 
               </div>
               <footer class="article-footer">
-                <time class="article-footer-updated" datetime="2019-02-14T03:25:05.101Z" itemprop="dateModified">Última actualización: 2019-02-14</time>
+                <time class="article-footer-updated" datetime="2019-04-09T13:18:22.237Z" itemprop="dateModified">Última actualización: 2019-04-09</time>
                 
               </footer>
             </div>
